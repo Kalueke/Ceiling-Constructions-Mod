@@ -64,23 +64,6 @@ tableextension 50103 "Inventory Setup Extension" extends "Inventory Setup"
         }
     }
 }
-
-Tableextension 50104 "Customer Card Extension" extends "customer"
-{
-    fields
-    {
-        field(50100; "Company Type"; Option)
-        {
-            OptionMembers = "",Architect,General_Contractor,Property_Manager,Designer,Drywall_Contractor,Other;
-            OptionCaptionML = ENU = 'Blank,Architect,General Contractor,Property Manager,Designer,Drywall Contractor,Other';
-            Caption = 'Company Type';
-            DataClassification = CustomerContent;
-
-        }
-    }
-}
-
-
 pageextension 50104 "Inventory Setup Extension" extends "Inventory Setup"
 {
     layout
@@ -477,17 +460,5 @@ pageextension 50105 "Item List Extension" extends "Item List"
         Visible01, Visible02, Visible03, Visible04, Visible05, Visible06, Visible07, Visible08, Visible09, Visible10 : Boolean;
 }
 
-pageextension 50106 "Customer Card Extension" extends "Customer Card"
-{
-    layout
-    {
-        addafter(Name)
-        {
-            field("Company Type"; Rec."Company Type")
-            {
-                ApplicationArea = All;
-            }
-        }
-    }
-}
+
 

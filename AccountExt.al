@@ -93,7 +93,7 @@
             ExternalType = 'Lookup';
             Description = '';
             Caption = 'Preferred Resource (Deprecated)';
-            TableRelation = "FS Bookable Resource".BookableResourceId;
+            //TableRelation = "FS Bookable Resource".BookableResourceId;
         }
         field(10033; msdyn_TaxExempt; Boolean)
         {
