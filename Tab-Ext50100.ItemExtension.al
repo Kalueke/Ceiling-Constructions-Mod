@@ -213,7 +213,7 @@ pageextension 50100 "Item Card Extension" extends "Item Card"
         }
     }
 
-    trigger OnOpenPage()
+    /*trigger OnOpenPage()
     begin
         EnableGridField();
     end;
@@ -223,7 +223,7 @@ pageextension 50100 "Item Card Extension" extends "Item Card"
         EnableGridField();
         CurrPage.Update(); // Ensures the UI updates when navigating
     end;
-
+*/
     var
         GridEnabled: Boolean;
         SQFeetEnabled: Boolean;
@@ -337,6 +337,7 @@ table 50102 "Color"
     DrillDownPageId = "Color List";
     LookupPageId = "Color List";
 
+
     fields
     {
         field(1; "Color ID"; Code[10])
@@ -373,6 +374,7 @@ page 50102 "Color List"
     PageType = List;
     SourceTable = "Color";
     ApplicationArea = All;
+    UsageCategory = Lists;
 
     layout
     {
