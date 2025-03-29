@@ -2,9 +2,9 @@ tableextension 50105 "Vendor Card Extension" extends "Vendor"
 {
     fields
     {
-        field(50101; "Vendor Type"; Option)
+        field(50101; "Vendor Type"; Code[100])
         {
-            TableRelation =
+            TableRelation = "Account Type";
             Caption = 'Vendor Type';
             DataClassification = CustomerContent;
         }

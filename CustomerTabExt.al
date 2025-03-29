@@ -2,10 +2,9 @@ Tableextension 50104 "Customer Card Extension" extends "customer"
 {
     fields
     {
-        field(50100; "Company Type"; Option)
+        field(50100; "Company Type"; Code[100])
         {
-            OptionMembers = "",Architect,General_Contractor,Property_Manager,Designer,Drywall_Contractor,Other;
-            OptionCaptionML = ENU = 'Blank,Architect,General Contractor,Property Manager,Designer,Drywall Contractor,Other';
+            TableRelation = "Account Type";
             Caption = 'Company Type';
             DataClassification = CustomerContent;
 

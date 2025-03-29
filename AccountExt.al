@@ -34,7 +34,7 @@
             Description = 'Shows how long, in minutes, that the record was on hold.';
             Caption = 'On Hold Time (Minutes)';
         }
-        field(242; LastOnHoldTime; Datetime)
+        field(242; LastOnHoldTime; DateTime)
         {
             ExternalName = 'lastonholdtime';
             ExternalType = 'DateTime';
@@ -76,24 +76,26 @@
             Description = '';
             Caption = 'Company Type';
             InitValue = " ";
-            OptionMembers = " ",Architect,GeneralContractor,PropertyManager,Designer,Resi,DrywallContractor,Armstrong,JobACTSpeciality,JobFastners,Office,Other,USGVendor,CertainTeedRockfonVendor,SpecialtyTiles;
+            OptionMembers =
+                " ",Architect,GeneralContractor,PropertyManager,Designer,Resi,DrywallContractor,Armstrong,JobACTSpeciality,JobFastners,Office,Other,USGVendor,CertainTeedRockfonVendor,SpecialtyTiles;
             OptionOrdinalValues = -1, 1, 2, 3, 4, 5, 11, 6, 7, 8, 9, 10, 12, 13, 14;
         }
-        field(10029; msdyn_BillingAccount; GUID)
+        field(10029; msdyn_BillingAccount; Guid)
         {
             ExternalName = 'msdyn_billingaccount';
             ExternalType = 'Lookup';
-            Description = 'Reference to an other account to be used for billing (only to be used if billing account differs)';
+            Description = 'Reference to another account to be used for billing (only if billing account differs)';
             Caption = 'Billing Account';
             TableRelation = "CRM Account".AccountId;
         }
-        field(10030; msdyn_PreferredResource; GUID)
+        field(10030; msdyn_PreferredResource; Guid)
         {
             ExternalName = 'msdyn_preferredresource';
             ExternalType = 'Lookup';
             Description = '';
             Caption = 'Preferred Resource (Deprecated)';
-            //TableRelation = "FS Bookable Resource".BookableResourceId;
+            // Uncomment and adjust if you have a "FS Bookable Resource" tableextension:
+            // TableRelation = "FS Bookable Resource".BookableResourceId;
         }
         field(10033; msdyn_TaxExempt; Boolean)
         {
@@ -134,7 +136,7 @@
             OptionMembers = Hourly,Mileage,Fixed,None;
             OptionOrdinalValues = 690970000, 690970001, 690970002, 690970003;
         }
-        field(10041; msdyn_WorkOrderInstructions; BLOB)
+        field(10041; msdyn_WorkOrderInstructions; Blob)
         {
             ExternalName = 'msdyn_workorderinstructions';
             ExternalType = 'Memo';
@@ -142,15 +144,15 @@
             Caption = 'Work Order Instructions';
             Subtype = Memo;
         }
-        field(10048; advic_Opportunitylookup; GUID)
+        field(10048; advic_Opportunitylookup; Guid)
         {
             ExternalName = 'advic_opportunitylookup';
             ExternalType = 'Lookup';
             Description = '';
             Caption = 'Opportunitylookup';
-            TableRelation = "CDS Company".CompanyId;
+            TableRelation = "CDS Company".CompanyId; // Adjust if "CDS Company" is correct
         }
-        field(10050; advic_Customerlookup; GUID)
+        field(10050; advic_Customerlookup; Guid)
         {
             ExternalName = 'advic_customerlookup';
             ExternalType = 'Lookup';
@@ -158,7 +160,7 @@
             Caption = 'Customerlookup';
             TableRelation = "CRM Account".AccountId;
         }
-        field(10054; advic_contact; GUID)
+        field(10054; advic_contact; Guid)
         {
             ExternalName = 'advic_contact';
             ExternalType = 'Lookup';
@@ -166,7 +168,7 @@
             Caption = 'Contact';
             TableRelation = "CRM Contact".ContactId;
         }
-        field(10057; advic_contactemail; GUID)
+        field(10057; advic_contactemail; Guid)
         {
             ExternalName = 'advic_contactemail';
             ExternalType = 'Lookup';
@@ -209,7 +211,7 @@
             Description = '';
             Caption = 'Modified By (User Name)';
         }
-        field(10071; msa_managingpartnerid; GUID)
+        field(10071; msa_managingpartnerid; Guid)
         {
             ExternalName = 'msa_managingpartnerid';
             ExternalType = 'Lookup';
@@ -224,7 +226,7 @@
             Description = '';
             Caption = 'Fed Tax ID';
         }
-        field(10076; advic_sendcoi; GUID)
+        field(10076; advic_sendcoi; Guid)
         {
             ExternalName = 'advic_sendcoi';
             ExternalType = 'Lookup';
@@ -232,15 +234,15 @@
             Caption = 'Send COI';
             TableRelation = "CRM Contact".ContactId;
         }
-        field(10079; advic_sendlienwaivers; GUID)
+        field(10079; advic_sendlienwaivers; Guid)
         {
             ExternalName = 'advic_sendlienwaivers';
             ExternalType = 'Lookup';
             Description = '';
-            Caption = ' Send Lien Waivers';
+            Caption = 'Send Lien Waivers';
             TableRelation = "CRM Contact".ContactId;
         }
-        field(10082; advic_sendinvoicesto; GUID)
+        field(10082; advic_sendinvoicesto; Guid)
         {
             ExternalName = 'advic_sendinvoicesto';
             ExternalType = 'Lookup';
@@ -248,7 +250,7 @@
             Caption = 'Send Invoices to';
             TableRelation = "CRM Contact".ContactId;
         }
-        field(10085; advic_sendcontract; GUID)
+        field(10085; advic_sendcontract; Guid)
         {
             ExternalName = 'advic_sendcontract';
             ExternalType = 'Lookup';
@@ -256,7 +258,7 @@
             Caption = 'Send Contract';
             TableRelation = "CRM Contact".ContactId;
         }
-        field(10088; advic_sendcloseoutdoc; GUID)
+        field(10088; advic_sendcloseoutdoc; Guid)
         {
             ExternalName = 'advic_sendcloseoutdoc';
             ExternalType = 'Lookup';
@@ -264,7 +266,7 @@
             Caption = 'Send Close Out Doc';
             TableRelation = "CRM Contact".ContactId;
         }
-        field(10091; advic_customerpaymentnotes; BLOB)
+        field(10091; advic_customerpaymentnotes; Blob)
         {
             ExternalName = 'advic_customerpaymentnotes';
             ExternalType = 'Memo';
@@ -289,7 +291,7 @@
             OptionMembers = " ",No,Yes;
             OptionOrdinalValues = -1, 0, 1;
         }
-        field(10103; msfsi_Joindate; Datetime)
+        field(10103; msfsi_Joindate; DateTime)
         {
             ExternalName = 'msfsi_joindate';
             ExternalType = 'DateTime';
@@ -310,7 +312,7 @@
             Description = '';
             Caption = 'Upload Invoice to';
         }
-        field(10109; advic_officemanager; GUID)
+        field(10109; advic_officemanager; Guid)
         {
             ExternalName = 'advic_officemanager';
             ExternalType = 'Lookup';
@@ -318,7 +320,7 @@
             Caption = 'Office Manager';
             TableRelation = "CRM Contact".ContactId;
         }
-        field(10112; advic_accountingcontact; GUID)
+        field(10112; advic_accountingcontact; Guid)
         {
             ExternalName = 'advic_accountingcontact';
             ExternalType = 'Lookup';

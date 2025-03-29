@@ -1,19 +1,19 @@
 // -------------------------------------------------------
 // TABLE: Account Type
 // -------------------------------------------------------
-table 50150 "Account Type"
+table 50103 "Account Type"
 {
     Caption = 'Account Type';
     DataClassification = CustomerContent;
 
     fields
     {
-        field(1; Code; Code[10])
+        field(1; Code; Code[30])
         {
             Caption = 'Code';
             DataClassification = CustomerContent;
         }
-        field(2; Name; Text[50])
+        field(2; Name; Text[100])
         {
             Caption = 'Name';
             DataClassification = CustomerContent;
@@ -32,11 +32,12 @@ table 50150 "Account Type"
 // -------------------------------------------------------
 // PAGE: Account Type List
 // -------------------------------------------------------
-page 50150 "Account Type List"
+page 50101 "Account Type List"
 {
     Caption = 'Account Type List';
     PageType = List;
     SourceTable = "Account Type";
+    UsageCategory = Lists;
     ApplicationArea = All;
 
     layout

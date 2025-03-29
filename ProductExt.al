@@ -69,7 +69,7 @@
             ExternalName = 'advic_sq1producttype';
             ExternalType = 'Picklist';
             Description = 'The type of SQ1 product: Grid, ACT, Wire, Angle, Tool, Wire Component, etc.';
-            Caption = 'Product Type';
+            Caption = 'Product Type custom';
             InitValue = " ";
             OptionMembers = " ",ACT,Grid,Wire,Angle,Fastners,Tool,WireComponent,Labor;
             OptionOrdinalValues = -1, 600890001, 600890000, 600890002, 600890003, 600890007, 600890004, 600890005, 600890006;
@@ -89,10 +89,10 @@
             ExternalName = 'advic_sq1manufacturer';
             ExternalType = 'Picklist';
             Description = '';
-            Caption = 'SQ1 Manufacturer';
+            Caption = 'Product Manufacturer';
             InitValue = " ";
-            OptionMembers = " ",Armstrong,Certainteed,USG,Generic;
-            OptionOrdinalValues = -1, 600890000, 600890001, 600890002, 600890003;
+            OptionMembers = " ",ARMSTRONG,CERTAINTEED,USG,GENERIC,ROCKFON;
+            OptionOrdinalValues = -1, 1, 2, 3, 4, 5;
         }
         field(10108; advic_SQ1SeismicClass; Option)
         {

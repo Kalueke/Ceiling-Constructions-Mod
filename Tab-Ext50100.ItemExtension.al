@@ -25,6 +25,15 @@ tableextension 50100 ItemExtension extends Item
             DataClassification = CustomerContent;
         }
 
+        field(50103; "Product Manufacturer"; Option)
+        {
+            Caption = 'Product Manufacturer';
+            DataClassification = CustomerContent;
+            OptionMembers = " ",Armstrong,Certainteed,USG,Generic,Rockfon;
+            OptionCaptionML = ENU = 'Blank,ARMSTRONG,CERTAINTEED,USG,GENERIC,ROCKFON';
+
+        }
+
         field(50104; "Product Edge Detail"; Option)
         {
             Caption = 'Product Edge Detail';
@@ -118,6 +127,13 @@ pageextension 50100 "Item Card Extension" extends "Item Card"
 {
     layout
     {
+        addafter(Description)
+        {
+            field("Product Manufacturer"; Rec."Product Manufacturer")
+            {
+                ApplicationArea = All;
+            }
+        }
         addafter("Prices & Sales")
         {
             group("Attributes")
