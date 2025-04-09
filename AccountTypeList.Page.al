@@ -49,10 +49,12 @@ page 50101 "Account Type List"
                 field(Code; Rec.Code)
                 {
                     ApplicationArea = All;
+                    ToolTip = 'These are types of accounts in the CRM';
                 }
                 field(Name; Rec.Name)
                 {
                     ApplicationArea = All;
+                    ToolTip = 'This is the name of the account as it is shown in CRM';
                 }
             }
         }

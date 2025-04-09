@@ -69,7 +69,7 @@
             ExternalName = 'advic_sq1producttype';
             ExternalType = 'Picklist';
             Description = 'The type of SQ1 product: Grid, ACT, Wire, Angle, Tool, Wire Component, etc.';
-            Caption = 'Product Type custom';
+            Caption = 'Product Category';
             InitValue = " ";
             OptionMembers = " ",ACT,Grid,Wire,Angle,Fastners,Tool,WireComponent,Labor;
             OptionOrdinalValues = -1, 600890001, 600890000, 600890002, 600890003, 600890007, 600890004, 600890005, 600890006;
@@ -79,7 +79,7 @@
             ExternalName = 'advic_sq1size';
             ExternalType = 'Picklist';
             Description = '';
-            Caption = 'SQ1 Size';
+            Caption = 'Product Size';
             InitValue = " ";
             OptionMembers = " ","2x2","2x4","2x5","2x6","2x8","4x4","2","4","12","20";
             OptionOrdinalValues = -1, 600890000, 600890001, 600890002, 600890003, 600890004, 600890005, 600890006, 600890007, 600890008, 600890009;
@@ -109,10 +109,12 @@
             ExternalName = 'advic_sq1edge';
             ExternalType = 'Picklist';
             Description = '';
-            Caption = 'SQ1 Edge';
+            Caption = 'Product Edge Detail';
             InitValue = " ";
-            OptionMembers = " ",SquareEdge,AngledEdge;
-            OptionOrdinalValues = -1, 600890000, 600890001;
+            OptionMembers = " ","Reveal edge","Square edge lay-in",Vrock4,Vrock2,Reveal,"Beveled tegular","Angled tegular","Tegular edge","Square tegular",Vector,Square,"Chamfered tegular","Beaded tegular","Classic-step tegular","Classic-step",Angled,"Square-short side tegular-long side","Radiused tegular","Cove molding","Crown molding","Wrapped tegular","Flush tegular","Snap-in pan","Vector edge","Narrow reveal";
+
+            OptionOrdinalValues = -1, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25;
+
         }
         field(10112; advic_SQ1916GridTypes; Option)
         {
@@ -129,10 +131,11 @@
             ExternalName = 'advic_sq1color';
             ExternalType = 'Picklist';
             Description = '';
-            Caption = 'SQ1 Color';
+            Caption = 'Product Color';
             InitValue = " ";
-            OptionMembers = " ",White,Adobe,CreamHaze,Platinum,Oyster,TechBlack,Platinum1;
-            OptionOrdinalValues = -1, 600890000, 600890001, 600890002, 600890003, 600890004, 600890005, 600890006;
+            OptionMembers = " ",ADOBE,BLACK,"BLUE GREEN","BLUE MAUVE",CREAM,"DESERT SAND",FLAGSTONE,"FROST BLUE",HAZE,"LIGHT GREY","LIGHT ROSE",MIST,OATMEAL,"ONYX(BL)",OYSTER,"PEARL GREY",PLATINUM,"PRIMER WHITE","SUMMER WHEAT","TECH BLACK","WHITE AND TECH BLACK",WHITE,"WHITE WITH GRAY SPATTER";
+
+            OptionOrdinalValues = -1, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23;
         }
         field(10118; advic_productmanfacture; Text[100])
         {
@@ -148,13 +151,7 @@
             Description = '';
             Caption = 'Product Size';
         }
-        field(10120; advic_productedgedetail; Text[100])
-        {
-            ExternalName = 'advic_productedgedetail';
-            ExternalType = 'String';
-            Description = '';
-            Caption = 'Product Edge Detail';
-        }
+
         field(10121; advic_productcolor; Text[100])
         {
             ExternalName = 'advic_productcolor';

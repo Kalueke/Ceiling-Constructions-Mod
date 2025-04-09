@@ -7,13 +7,13 @@
             "type": "al",
             "environmentType": "Sandbox",
             "environmentName": "SquareOne",
-            "startupObjectId": 31,
+            "startupObjectId": 5123,
             "startupObjectType": "Page",
             "breakOnError": "All",
             "launchBrowser": true,
             "enableLongRunningSqlStatements": true,
             "enableSqlInformationDebugger": true,
-            "schemaUpdateMode": "Synchronize"
+            "schemaUpdateMode": "ForceSync"
         },
         {
             "name": "AL: Generated Download Symbols request",

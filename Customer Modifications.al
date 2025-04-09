@@ -21,6 +21,7 @@ pageextension 50106 "Customer Card Extension" extends "Customer Card"
             field("Company Type"; Rec."Company Type")
             {
                 ApplicationArea = All;
+                ToolTip = 'This is the company type field from the CRM';
             }
         }
     }

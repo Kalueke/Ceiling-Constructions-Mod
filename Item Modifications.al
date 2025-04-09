@@ -44,12 +44,15 @@ tableextension 50100 ItemExtension extends Item
             OptionCaptionML = ENU = 'Blank,Reveal Edge,Square Edge Lay-in,VROCK4,VROCK2,Reveal,Beveled Tegular,Angled Tegular,Tegular Edge,Square Tegular,Vector,Square,Chamfered Tegular,Beaded Tegular,Classic-Step Tegular,Classic-Step,Angled,Square-short side Tegular-long side,Radiused Tegular,Cove Molding,Crown Molding,Wrapped Tegular,Flush Tegular,Snap-in Pan,Vector Edge,Narrow Reveal';
         }
 
-        field(50105; "Product Color"; Code[10])
+        field(50105; "Product Color"; Option)
         {
             Caption = 'Product Color';
             DataClassification = CustomerContent;
             // Enforces valid color codes from the Color table
-            TableRelation = Color."Color ID";
+            //TableRelation = Color."Color Name";
+            OptionMembers = " ",ADOBE,BLACK,"BLUE GREEN","BLUE MAUVE",CREAM,"DESERT SAND",FLAGSTONE,"FROST BLUE",HAZE,"LIGHT GREY","LIGHT ROSE",MIST,OATMEAL,"ONYX(BL)",OYSTER,"PEARL GREY",PLATINUM,"PRIMER WHITE","SUMMER WHEAT","TECH BLACK","WHITE AND TECH BLACK",WHITE,"WHITE WITH GRAY SPATTER";
+            OptionCaptionML = ENU = 'Blank,ADOBE,BLACK,BLUE GREEN,BLUE MAUVE,CREAM,DESERT SAND,FLAGSTONE,FROST BLUE,HAZE,LIGHT GREY,LIGHT ROSE,MIST,OATMEAL,ONYX(BL),OYSTER,PEARL GREY,PLATINUM,PRIMER WHITE,SUMMER WHEAT,TECH BLACK,WHITE AND TECH BLACK,WHITE,WHITE WITH GRAY SPATTER';
+
         }
 
         field(50106; "Product Piece per Carton"; Text[100])
