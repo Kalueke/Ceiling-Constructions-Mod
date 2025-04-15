@@ -550,6 +550,14 @@
             Description = '';
             Caption = 'LFT Multiply 12';
         }
+        field(10106; cr534_ProjecttaskNumber; Text[500])
+        {
+            ExternalName = 'cr534_projecttasknumber';
+            ExternalType = 'String';
+            Description = 'This is used to Track tasks and Change Order Request.';
+            Caption = 'Project Task Number';
+        }
+
     }
     keys
     {

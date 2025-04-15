@@ -1951,3 +1951,21 @@
         }
     }
 }
+
+pageextension 50105 CRMOpportunityListExt extends "CRM Opportunity List"
+{
+    Caption = 'Opportunities - Microsoft Dynamics 365 Sales';
+    DeleteAllowed = true;
+    Editable = true;
+    InsertAllowed = true;
+    ModifyAllowed = true;
+
+    layout
+    {
+        modify(StatusCode)
+        {
+            OptionCaption = 'Awarded,Bid Complete,Bid in progress,Bid Sent,Invoiced in Full,Job Complete,Not Bidding,On Hold,Paid in Full,Planning/Procurement,Started';
+        }
+    }
+
+}
