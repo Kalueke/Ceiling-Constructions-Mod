@@ -181,8 +181,9 @@ pageextension 50103 AddCRM extends "Job List"
                         trigger OnAction()
                         var
                             CRMIntegrationManagement: Codeunit "CRM Integration Management";
+                            CRMOpportunity: Record "CRM Opportunity";
                         begin
-                            CRMIntegrationManagement.CreateNewCustomerFromCRM();
+                            CRMIntegrationManagement.CreateNewRecordsFromCRM(CRMOpportunity);
                         end;
                     }
                 }
