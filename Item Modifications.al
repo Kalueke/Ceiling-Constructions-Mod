@@ -3,10 +3,14 @@
 // -------------------------------------------------------
 tableextension 50100 ItemExtension extends Item
 {
+
     fields
     {
-        // These fields are Text for now. If you need arithmetic,
-        // consider making them Decimal instead.
+        modify(Description)
+        {
+            Caption = 'Description';
+            Width = 250;
+        }
         field(50100; "Length"; Text[50])
         {
             Caption = 'Length';
