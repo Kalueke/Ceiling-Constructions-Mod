@@ -2,11 +2,6 @@ reportextension 50100 "Purchase Order Report Ext" extends "Standard Purchase - O
 {
     dataset
     {
-        modify(Desc_PurchLine)
-        {
-
-        }
-
         // Add a new field to the Purchase Line table to display the Item Base UoM
         // and the Quantity in Item UoM and Item UoM Unit Price.    
         add("Purchase Line")
@@ -23,6 +18,14 @@ reportextension 50100 "Purchase Order Report Ext" extends "Standard Purchase - O
             {
 
             }
+            column(Desc_Purchline_Url; "URL")
+            {
+
+            }
+            column(Desc_Purchline_UrlText; "Extended Description")
+            {
+
+            }
         }
     }
     rendering
@@ -36,13 +39,18 @@ reportextension 50100 "Purchase Order Report Ext" extends "Standard Purchase - O
         }
     }
     trigger OnPreReport()
-    var
-        PurchaseLine: Record "Purchase Line";
-        ItemRec: Record Item;
-        ItemUoMRec: Record "Item Unit of Measure";
     begin
-        // Loop through the Purchase Line records and set the values for the new fields
+        // Any pre-report logic can go here if needed.
 
+    end;
 
+    local procedure GetHyperlinkDescription(): Text[250]
+    var
+        ItemRec: Record Item;
+    begin
+        if ItemRec.Get("Purchase Line"."No.") then
+            exit('<a href="' + ItemRec.URL + '">' + ItemRec.Description + '</a>')
+        else
+            exit(ItemRec.Description); // Fallback to plain text if no URL is available
     end;
 }

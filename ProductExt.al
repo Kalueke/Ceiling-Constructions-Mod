@@ -238,5 +238,46 @@
             OptionMembers = Standard,"1/4BoltSlot","1/8BoltSlot",Interlude;
             OptionOrdinalValues = 600890000, 600890001, 600890002, 600890003;
         }
+        field(10133; cr534_ExtendedDescription; Text[250])
+        {
+            ExternalName = 'cr534_extendeddescription';
+            ExternalType = 'String';
+            Description = 'Extended description of the product.';
+            Caption = 'Extended Description';
+        }
+        field(10134; advic_leadtimecalculation; Integer)
+        {
+            ExternalName = 'advic_leadtimecalculation';
+            ExternalType = 'Integer';
+            Description = 'Lead time calculation for the product.';
+        }
+        field(10135; advic_length; Text[50])
+        {
+            ExternalName = 'advic_length';
+            ExternalType = 'String';
+            Description = 'Length of the product.';
+            Caption = 'Length';
+        }
+        field(10136; advic_width; Text[50])
+        {
+            ExternalName = 'advic_width';
+            ExternalType = 'String';
+            Description = 'Width of the product.';
+            Caption = 'Width';
+        }
+        field(10137; advic_thickness; Text[50])
+        {
+            ExternalName = 'advic_thickness';
+            ExternalType = 'String';
+            Description = 'Thickness of the product.';
+            Caption = 'Thickness';
+        }
+        field(10138; advic_nrc; Decimal)
+        {
+            ExternalName = 'advic_nrc';
+            ExternalType = 'Decimal';
+            Description = 'Noise Reduction Coefficient (NRC) of the product.';
+            Caption = 'NRC';
+        }
     }
 }

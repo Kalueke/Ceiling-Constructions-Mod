@@ -6,11 +6,7 @@ tableextension 50100 ItemExtension extends Item
 
     fields
     {
-        modify(Description)
-        {
-            Caption = 'Description';
-            Width = 250;
-        }
+
         field(50100; "Length"; Text[50])
         {
             Caption = 'Length';
@@ -95,7 +91,7 @@ tableextension 50100 ItemExtension extends Item
             DataClassification = CustomerContent;
         }
 
-        field(50112; "NRC"; Text[100])
+        field(50112; "NRC"; Decimal)
         {
             Caption = 'NRC';
             DataClassification = CustomerContent;
@@ -120,11 +116,54 @@ tableextension 50100 ItemExtension extends Item
             Caption = 'Product Unit Cost per Linear Feet';
             DataClassification = CustomerContent;
         }
+        field(50116; URL; Text[250])
+        {
+            Caption = 'URL';
+            DataClassification = CustomerContent;
+        }
+        field(50117; "Extended Description"; Text[250])
+        {
+            Caption = 'Extended Description';
+            DataClassification = CustomerContent;
+        }
+        field(50118; "Lead Time Calculation CRM"; Integer)
+        {
+            Caption = 'Lead Time Calculation';
+            DataClassification = CustomerContent;
+        }
+        modify("Lead Time Calculation")
+        {
+            trigger OnAfterValidate()
+            var
+                Expr: DateFormula;
+                RefDate: Date;
+                CalcDateResult: Date;
+                Days: Integer;
+                Text000: Label 'The reference date is: %1 \';
+                Text001: Label 'The expression: %2 returns %3 days';
+            begin
+                // Use today's date as the reference date
+                RefDate := Today();
 
+                // Get the DateFormula from the "Lead Time Calculation" field
+                Expr := "Lead Time Calculation";
 
+                // Calculate the resulting date based on the DateFormula
+                CalcDateResult := CalcDate(Expr, RefDate);
 
+                // Calculate the difference in days
+                Days := CalcDateResult - RefDate;
 
+                // Update the "Lead Time Calculation CRM" field
+                "Lead Time Calculation CRM" := Days;
+
+                // Display a message for debugging or confirmation
+                Message(Text000 + Text001, RefDate, Expr, Days);
+            end;
+        }
     }
+
+
 }
 
 // -------------------------------------------------------
@@ -136,6 +175,11 @@ pageextension 50100 "Item Card Extension" extends "Item Card"
     {
         addafter(Description)
         {
+            field("Extended Description"; Rec."Extended Description")
+            {
+                ApplicationArea = All;
+                ToolTip = 'Extended description for the item.';
+            }
             field("Product Manufacturer"; Rec."Product Manufacturer")
             {
                 ApplicationArea = All;
@@ -218,6 +262,10 @@ pageextension 50100 "Item Card Extension" extends "Item Card"
                     ApplicationArea = All;
                     Enabled = GridEnabled;
                 }
+                field(URL; Rec.URL)
+                {
+                    ApplicationArea = All;
+                }
 
 
                 // If you add the new fields for linear feet, you'd place them here too,
@@ -236,26 +284,14 @@ pageextension 50100 "Item Card Extension" extends "Item Card"
         }
     }
 
-    /*trigger OnOpenPage()
-    begin
-        EnableGridField();
-    end;
 
-    trigger OnAfterGetRecord()
-    begin
-        EnableGridField();
-        CurrPage.Update(); // Ensures the UI updates when navigating
-    end;
-*/
     var
         GridEnabled: Boolean;
         SQFeetEnabled: Boolean;
 
     local procedure EnableGridField()
     begin
-        // If the Item Category Code is "GRID CROSS-TEE" or "GRID MAIN-T", 
-        // then we enable the Grid fields and disable the SQ Feet fields, etc.
-        // Example logic:
+        // Logic to enable/disable fields based on the "Item Category Code"
         if (Rec."Item Category Code" = 'GRID CROSS-TEE') or
            (Rec."Item Category Code" = 'GRID MAIN-T')
         then begin

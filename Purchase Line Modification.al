@@ -16,6 +16,7 @@ tableextension 50102 CTN extends "Purchase Line"
             ToolTip = 'Displays the base unit of measure for the item.';
             TableRelation = "Unit of Measure";
             DataClassification = CustomerContent;
+
         }
         field(10103; "Item UoM Unit Price"; Decimal)
         {
@@ -24,16 +25,32 @@ tableextension 50102 CTN extends "Purchase Line"
             DecimalPlaces = 0 : 5;
             DataClassification = CustomerContent;
         }
+        field(10104; "Extended Description"; Text[250])
+        {
+            Caption = 'Extended Description';
+            ToolTip = 'Displays the extended description of the item.';
+            DataClassification = CustomerContent;
+
+        }
+        field(10105; URL; Text[250])
+        {
+            Caption = 'URL';
+            ToolTip = 'Displays the URL of the item.';
+            DataClassification = CustomerContent;
+
+        }
     }
 
     trigger OnInsert()
     begin
         UpdateCalculatedFields();
+        UpdateAdditionalFields();
     end;
 
     trigger OnModify()
     begin
         UpdateCalculatedFields();
+        UpdateAdditionalFields();
     end;
 
     local procedure UpdateCalculatedFields()
@@ -65,6 +82,16 @@ tableextension 50102 CTN extends "Purchase Line"
                 else
                     Rec."Item UoM Unit Price" := Rec."Direct Unit Cost"; // Fallback
             end;
+        end;
+    end;
+
+    local procedure UpdateAdditionalFields()
+    var
+        ItemRec: Record Item;
+    begin
+        if ItemRec.Get(Rec."No.") then begin
+            Rec."Extended Description" := ItemRec."Extended Description";
+            Rec.URL := ItemRec.URL;
         end;
     end;
 }

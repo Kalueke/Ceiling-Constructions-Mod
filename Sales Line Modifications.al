@@ -23,6 +23,21 @@ tableextension 50110 CTN_SalesLine extends "Sales Line"
             ToolTip = 'Displays the unit price in the base unit of measure for the item.';
             DecimalPlaces = 0 : 5;
         }
+        field(50104; "Extended Description"; Text[250])
+        {
+            Caption = 'Extended Description';
+            ToolTip = 'Displays the extended description of the item.';
+            trigger OnValidate()
+            var
+                ItemRec: Record Item;
+            begin
+                if ItemRec.Get(Rec."No.") then begin
+                    Rec."Extended Description" := ItemRec.Description;
+                end else begin
+                    Rec."Extended Description" := '';
+                end;
+            end;
+        }
     }
 }
 
